@@ -40,10 +40,6 @@ export default function Contact() {
                   <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-brand-yellow/10 border border-brand-yellow/15 flex-none"><Mail className="w-4 h-4 text-brand-yellow" /></span>
                   <a className="mt-1 hover:text-brand-yellow transition break-all" href="mailto:info@roadtainers.co.ke">info@roadtainers.co.ke</a>
                 </li>
-                <li className="flex gap-3">
-                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-brand-yellow/10 border border-brand-yellow/15 flex-none"><Clock className="w-4 h-4 text-brand-yellow" /></span>
-                  <span className="mt-1">24/7 dispatch · Office: Mon–Fri 08:00–17:00</span>
-                </li>
               </ul>
             </div>
 
