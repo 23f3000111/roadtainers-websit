@@ -3,13 +3,15 @@
  * Receives POSTed JSON from the React forms (/quote, /contact, /careers),
  * appends to a Google Sheet, and emails the relevant address.
  *
- * Quote / Contact → info@roadtainers.co.ke
- * Career applications → hr@roadtainers.co.ke (with CV attachment if provided)
+ * Quote   → yusuf.pasta@roadtainers.co.ke
+ * Contact → info@roadtainers.co.ke
+ * Career  → hr@roadtainers.co.ke (with CV attachment if provided)
  *
  * Setup: see README.md in this folder.
  */
 
 const SHEET_NAME    = 'Leads';
+const QUOTE_EMAIL   = 'yusuf.pasta@roadtainers.co.ke';
 const NOTIFY_EMAIL  = 'info@roadtainers.co.ke';
 const HR_EMAIL      = 'hr@roadtainers.co.ke';
 const RATE_LIMIT_MS = 30 * 1000;
@@ -95,7 +97,8 @@ function appendRow(row) {
 
 function sendEmail(row, resumeBase64, resumeFilename) {
   const isCareer = row.form_type === 'career';
-  const toEmail  = isCareer ? HR_EMAIL : NOTIFY_EMAIL;
+  const isQuote  = row.form_type === 'quote';
+  const toEmail  = isCareer ? HR_EMAIL : isQuote ? QUOTE_EMAIL : NOTIFY_EMAIL;
 
   let subject;
   if (row.form_type === 'quote') {
